@@ -1,0 +1,38 @@
+apiVersion: expense-tracker.com/v1alpha1
+kind: Component
+metadata:
+  name: "Expense Component"
+  appid: ExpenseComponent
+  description: "today demo"
+  annotations:
+    github.com/project-slug: karthikvelou-cts/backstage
+    backstage.io/techdocs-ref: dir:.
+    # Add the following annotation to the component to enable the AWS CI/CD plugin
+    flowsource/aws-pipelines: flowsource-sonartest-ci-pipeline, flowsource-demo-cd-pipeline
+    flowsource/aws-repo-name: flowsource-sonartest
+    flowsource/aws-region: ap-southeast-1
+    flowsource/durationInDays: '60'
+    flowsource/aws-project-name: flowsource-sonartest-build-project
+    # Add the following annotation to the component to enable the Code Quality plugin
+    flowsource/sonarqube-project-key: springboot-app-demo 
+    # Add the following annotation to the component to enable the Github PR plugin 
+    flowsource/github-repo-owner: karthikvelou-cts
+    flowsource/github-repo-name: mern-stack
+    # Add the following annotation to the component to enable the Checkmarx plugin
+    flowsource/checkmarx-project-id: sonarscan-testing
+    # Add the following annotation to the component to enable the Blackduck plugin
+    flowsource/blackduck-project-id: sonarscan-testing
+    # Kubernetes plugin 
+    'backstage.io/kubernetes-namespace': sonar-ns
+    'backstage.io/kubernetes-label-selector': 'app=sonarscan-testing'
+    #Add the following annotation to the component to enable the Jira plugin
+    flowsource/jira-project-key: NI
+    flowsource/jira-filter-field-value: ''
+    flowsource/jira-filter-field-key: ''
+    flowsource/jira-enable-current-sprint: 'true' 
+spec:
+  providesApis:
+    - sonarscan-testing-api
+  type: service
+  lifecycle: experimental
+  owner: "group:default/catalog-admin"
