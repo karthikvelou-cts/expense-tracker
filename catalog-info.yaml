@@ -1,4 +1,4 @@
-apiVersion: expensetracker/v1alpha1
+apiVersion: expensetracker.io/v1alpha1
 kind: Component
 metadata:
   name: ExpenseComponent
