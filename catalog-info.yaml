@@ -1,7 +1,7 @@
 apiVersion: expense-tracker.com/v1alpha1
 kind: Component
 metadata:
-  name: "Expense Component"
+  name: ExpenseComponent
   appid: ExpenseComponent
   description: "today demo"
   annotations:
